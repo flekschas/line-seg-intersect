@@ -1,0 +1,57 @@
+{
+  "name": "line-seg-intersect",
+  "version": "1.0.0",
+  "description": "Fast testing whether two line segments intersect",
+  "author": "Fritz Lekschas",
+  "keywords": [
+    "2d",
+    "line segments",
+    "intersection",
+    "fast",
+    "spatial"
+  ],
+  "license": "MIT",
+  "main": "dist/line-seg-intersect.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "dist/line-seg-intersect.js",
+    "dist/line-seg-intersect.min.js"
+  ],
+  "unpkg": "dist/line-seg-intersect.min.js",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^1.0.0-rc.15",
+    "istanbul": "^0.4.5",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.7.0",
+    "rollup": "^0.64.1",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-terser": "^1.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint index.js tests.js rollup.config.js",
+    "precommit": "pretty-quick --staged",
+    "prepublishOnly": "npm run test",
+    "prerelease": "rm -rf dist/*; npm run build; zip -r dist.zip dist",
+    "pretest": "npm run lint; npm run build",
+    "test": "node tests.js | tap-spec",
+    "test-coverage": "istanbul cover tape tests.js",
+    "watch": "rollup -cw"
+  },
+  "homepage": "https://github.com/flekschas/line-seg-intersect",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flekschas/line-seg-intersect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flekschas/line-seg-intersect/issues"
+  }
+}
