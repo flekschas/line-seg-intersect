@@ -1,6 +1,6 @@
 {
   "name": "line-seg-intersect",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Fast testing whether two line segments intersect",
   "author": "Fritz Lekschas",
   "keywords": [
