@@ -1,0 +1,31 @@
+language: node_js
+node_js:
+  - "8"
+branches:
+  only:
+    - master
+    - develop
+    - "/^v.*$/"
+before_script:
+  - npm install
+before_deploy:
+  - npm run prerelease
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    api_key:
+      secure: Gi71WMQvvXi7DVe676C9KNfy/OeP76nQMQG6r0CKvk9i8PBZwXPNy+cwn+98r3LsZSYiLsRIOiMZR5Iyaz+hDITJzFCQMQ9qHqsU3tUTyduRcPE9XjQFNqIe/qRxvS+RF8a4C5iiW6tkpF/BUcekvUEiSTiMcjyWkKNEcghPWVCzE0srNaa/XIFLO/fXWJt2Okz16daKXKtkxmbVPFqqZZGJzYAXIxmPLE2CzjuRMe0gK3EBEE+OZ6qy2d3IdFGBIQcYTgMSI0PbLh4iVwIIKX4UFUbEwp21X0lMZVD3B00QUKL+/IWdzylAFFB0tKPDVyjXm347hXkrIJdLs+xDaJRy1BZtvXz4SwnqWrY+Z8FI484tYAQBct4qaNF8QlbMwTK3s4GyacwLHnwZicETYdSFmMBKCesTJNFCOmaduYaptxjgnzZHveFzvRBUcopcxGTX2iKOpaC0EsTBzgxar/59WXN8tqMF6rZeSIfkGGDiNmY8w1QPj4Se+1C+jgU2q+LUEMKkGJlU6OBUzUR4DkN1dLI7CPmVWr6uZhrVRGXqSfDyt0ObFps0Y6NlgHODxwczax84PqTMJ7g+FAI5stiUi4BYKWj6sqsyF+ZlWJgc4jsdP2zQiqQL8YIrYiUGyboqrWGDNNHCxOyLF2G7k54mABqXxT+90NPd/dDohHM=
+    file: dist.zip
+    on:
+      branch: master
+      tags: true
+      repo: flekschas/line-seg-intersect
+  - provider: npm
+    skip_cleanup: true
+    email: service@lekschas.de
+    api_key:
+      secure: qg9QAOGkJZp2xsBj3keFhr5NbCLH0rUBkrr79VqoRJJ3U17VZHNJiqQ/RWMx7ZrhoPrUaBDJDJZzI6+0sRdjJH3u8pBQrs2HTVEX8DINbpx92eKgQ1b4eA1YGPPagQympUrMaUSreFsUZEtw19TT3Os+lxu/jnpnd8ldaBS0mr0PbVHE983Rr3QTUqFtjq9C22wb+4un9E/v1tkfCHqo7iS/jiUx24GB86XDj+517oG2/+MqFQlYfaubIyoZcA7D7v2kY7jkKpcGbdJ8j3bjqLn0OgepJG9T/s/RSzImtyzDTNmgp0gkLsKK2Fgcwkr6UW17gchW9Zlylre1+476yBpNIikDlvTrQCo2w8M5QEfDK6dPJJ5kxe+Vr7o+SwkJO10No5Qd7ERD7sWPRNaUBX46AtRG9ausaNpBl4LyMFdCo9VBR4+FcBLTC0xAQN3AOI0sMN1lp9U69f9dBwCPk1DZlGeHRB9IgBmaH/PkmnwzvG7NQlJVIW4fpNjMCOHEgsVXvKt3/5fSDjcCW4s3vrytVGzagVZYZ91DD567cywQNVs0rpZHBHlST4/S+kKnOw+nNZWfQ3r3rmLDQGgD2J4qaB6EsMuyIBHWFPtf/tQNTM9Cnx9mWHnAJhQRLehyueBk/1728nui6XHesr2zs8sqM4RDqK0kxUWQFxgLMW8=
+    on:
+      branch: master
+      tags: true
+      repo: flekschas/line-seg-intersect
